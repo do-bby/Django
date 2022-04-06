@@ -1,0 +1,11 @@
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+<!--경로에서 polls를 두번 반복한 이유는 
+ex) app1/templates/abc.html, app2/templates/abc.html일 때 app1에 abc.html을 찾아오는 경우가 발생 할 수 있기 때문-->
